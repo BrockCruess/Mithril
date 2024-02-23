@@ -78,16 +78,16 @@ if test "$relay" = "yes"
 then relayNewShort=$(./mithril-relay --version | tr ' ' '-' | cut -c 15-)
 fi
 if test "$client" = "yes"
-then clientOldShort=$($clientOld | cut -c 16-)
+then clientOldShort=$(echo $clientOld | cut -c 16-)
 fi
 if test "$signer" = "yes"
-then signerOldShort=$($signerOld | cut -c 16-)
+then signerOldShort=$(echo $signerOld | cut -c 16-)
 fi
 if test "$aggregator" = "yes"
-then aggregatorOldShort=$($aggregatorOld | cut -c 20-)
+then aggregatorOldShort=$(echo $aggregatorOld | cut -c 20-)
 fi
 if test "$relay" = "yes"
-then relayOldShort=$($relayOld | cut -c 15-)
+then relayOldShort=$(echo $relayOld | cut -c 15-)
 fi
 # Compare versions before and after to check if an update actually took place - if it did, log it
 time=$(date)
