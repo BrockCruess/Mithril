@@ -94,7 +94,7 @@ fi
 if test "$relay" = "yes"
 then relayOldShort=$($relayOld | cut -c 15-)
 fi
-# Check if an update actually took place - if it did, log it
+# Compare versions before and after to check if an update actually took place - if it did, log it
 time=$(date)
 if test "$clientOldShort" != "$clientNewShort"
 then echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log && echo " " >> updates.log
