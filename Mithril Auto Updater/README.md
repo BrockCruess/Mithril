@@ -4,6 +4,20 @@
 
 <br>
 
+This script is programmable, so you can edit this part at the beginning of the script to set which binaries you'd like to download and keep updated:
+
+> client=yes<br>
+> signer=yes<br>
+> aggregator=yes<br>
+> relay=yes
+
+To edit, run:
+```
+nano mithril-auto-updater.sh
+```
+
+<br>
+
 ## Download:
 
 To download the Auto Updater script, run this command in the directory where your Mithril binary files are stored:
