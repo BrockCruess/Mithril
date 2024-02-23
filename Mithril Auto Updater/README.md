@@ -27,7 +27,7 @@ curl https://raw.githubusercontent.com/BrockCruess/Mithril/main/Mithril%20Auto%2
 ```
 <br>
 
-For a manual approach, run this script any time a new Mithril version is announced:
+For a manual approach, run this script any time a new Mithril release is announced:
 
 ```
 ./mithril-auto-updater.sh
