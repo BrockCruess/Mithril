@@ -108,3 +108,4 @@ fi
 if test "$relayOldShort" != "$relayNewShort"
 then echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log && echo " " >> updates.log
 fi
+
