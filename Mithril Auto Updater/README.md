@@ -46,7 +46,6 @@ Set up a cronjob to update every 2 days at midnight by running this command with
 # Put your node directory after "mithrilDirectory=", with no slash at the end:
 mithrilDirectory=/directory/where/your/script/is/with/no/slash/at/the/end
 
-cd $mithrilDirectory
 (crontab -l ; echo "0 0 1-31/2 * * /bin/bash $mithrilDirectory/mithril-auto-updater.sh")| crontab -
 ```
 
@@ -58,7 +57,6 @@ If you run your node as **root** user, use this instead with **your** script fil
 # Put your node directory after "mithrilDirectory=", with no slash at the end:
 mithrilDirectory=/directory/where/your/script/is/with/no/slash/at/the/end
 
-cd $mithrilDirectory
 (sudo crontab -l ; echo "0 0 1-31/2 * * /bin/bash $mithrilDirectory/mithril-auto-updater.sh")| sudo crontab -
 ```
 
