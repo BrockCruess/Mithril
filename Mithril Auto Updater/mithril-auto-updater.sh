@@ -11,15 +11,11 @@ relay=yes
 
 # Find OS and format it to match the correct precompiled Mithril binaries
 uname=$(uname)
-if test "$uname" = "FreeBSD"
-then os=linux
-else
 if test "$uname" = "Linux"
 then os=linux
 else
 if test "$uname" = "Darwin"
 then os=macos
-fi
 fi
 fi
 # Format old version backup file names by version number & replace spaces with hyphens
@@ -68,7 +64,6 @@ fi
 if test "$relay" = "yes"
 then tar -xf mithril-$latestMithril-$os-x64.tar.gz mithril-relay && chmod +x mithril-relay
 fi
-if test "$client" = "yes"
 # Create shorter version names
 if test "$client" = "yes"
 then clientNewShort=$(./mithril-client --version | tr ' ' '-' | cut -c 16-)
