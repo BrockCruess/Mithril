@@ -25,30 +25,30 @@ fi
 # Format old version backup file names by version number & replace spaces with hyphens
 if test "$client" = "yes"
 then clientOld=$(./mithril-client --version | tr ' ' '-')
-else fi
+fi
 if test "$signer" = "yes"
 then signerOld=$(./mithril-signer --version | tr ' ' '-')
-else fi
+fi
 if test "$aggregator" = "yes"
 then aggregatorOld=$(./mithril-aggregator --version | tr ' ' '-')
-else fi
+fi
 if test "$relay" = "yes"
 then relayOld=$(./mithril-relay --version | tr ' ' '-')
-else fi
+fi
 # Back up old versions by version number to a folder called "version-backups"
 mkdir -p version-backups
 if test "$client" = "yes"
 then mv mithril-client version-backups/$clientOld.bak
-else fi
+fi
 if test "$signer" = "yes"
 then mv mithril-signer version-backups/$signerOld.bak
-else fi
+fi
 if test "$aggregator" = "yes"
 then mv mithril-aggregator version-backups/$aggregatorOld.bak
-else fi
+fi
 if test "$relay" = "yes"
 then mv mithril-relay version-backups/$relayOld.bak
-else fi
+fi
 # Find and delete old .tar.gz download file
 oldTar=$(find . -maxdepth 1 -name "*.tar.gz" -print | cut -c 3-)
 rm $oldTar
@@ -58,53 +58,53 @@ wget https://github.com/input-output-hk/mithril/releases/download/$latestMithril
 # Uncompress only the files we need and make them all executable
 if test "$client" = "yes"
 then tar -xf mithril-$latestMithril-$os-x64.tar.gz mithril-client && chmod +x mithril-client
-else fi
+fi
 if test "$signer" = "yes"
 then tar -xf mithril-$latestMithril-$os-x64.tar.gz mithril-signer && chmod +x mithril-signer
-else fi
+fi
 if test "$aggregator" = "yes"
 then tar -xf mithril-$latestMithril-$os-x64.tar.gz mithril-aggregator && chmod +x mithril-aggregator
-else fi
+fi
 if test "$relay" = "yes"
 then tar -xf mithril-$latestMithril-$os-x64.tar.gz mithril-relay && chmod +x mithril-relay
-else fi
+fi
 if test "$client" = "yes"
-# Check if an update actually took place - if it did, log it
+# Create shorter version names
 if test "$client" = "yes"
 then clientNewShort=$(./mithril-client --version | tr ' ' '-' | cut -c 16-)
-else fi
+fi
 if test "$signer" = "yes"
 then signerNewShort=$(./mithril-signer --version | tr ' ' '-' | cut -c 16-)
-else fi
+fi
 if test "$aggregator" = "yes"
 then aggregatorNewShort=$(./mithril-aggregator --version | tr ' ' '-' | cut -c 20-)
-else fi
+fi
 if test "$relay" = "yes"
 then relayNewShort=$(./mithril-relay --version | tr ' ' '-' | cut -c 15-)
-else fi
+fi
 if test "$client" = "yes"
 then clientOldShort=$($clientOld | cut -c 16-)
-else fi
+fi
 if test "$signer" = "yes"
 then signerOldShort=$($signerOld | cut -c 16-)
-else fi
+fi
 if test "$aggregator" = "yes"
 then aggregatorOldShort=$($aggregatorOld | cut -c 20-)
-else fi
+fi
 if test "$relay" = "yes"
 then relayOldShort=$($relayOld | cut -c 15-)
-else fi
+fi
+# Check if an update actually took place - if it did, log it
 time=$(date)
-if test "$clientOldShort" = "$clientNewShort"
-then fi
-else
+if test "$clientOldShort" != "$clientNewShort"
 then echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log && echo " " >> updates.log
-if test "$signerOldShort" = "$signerNewShort"
-then fi
-else echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log && echo " " >> updates.log
-if test "$aggregatorOldShort" = "$aggregatorNewShort"
-then fi
-else echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log && echo " " >> updates.log
-if test "$relayOldShort" = "$relayNewShort"
-then fi
-else echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log && echo " " >> updates.log
+fi
+if test "$signerOldShort" != "$signerNewShort"
+then echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log && echo " " >> updates.log
+fi
+if test "$aggregatorOldShort" != "$aggregatorNewShort"
+then echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log && echo " " >> updates.log
+fi
+if test "$relayOldShort" != "$relayNewShort"
+then echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log && echo " " >> updates.log
+fi
