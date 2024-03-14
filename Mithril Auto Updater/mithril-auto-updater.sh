@@ -45,7 +45,7 @@ fi
 if test "$relay" = "yes"
 then mv mithril-relay version-backups/$relayOld.bak
 fi
-# Find and delete old .tar.gz download file
+# Find and delete any old .tar.gz download files
 oldTar=$(find . -maxdepth 1 -name "*.tar.gz" -print | cut -c 3-)
 rm $oldTar
 # Check latest Mithril release for OS and download it
@@ -103,4 +103,7 @@ fi
 if test "$relayOldShort" != "$relayNewShort"
 then echo " " >> updates.log && echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log
 fi
+# Find and delete .tar.gz download file
+tarFile=$(find . -maxdepth 1 -name "*.tar.gz" -print | cut -c 3-)
+rm $tarFile
 echo "Update(s) complete"
