@@ -92,15 +92,15 @@ fi
 # Compare versions before and after to check if an update actually took place - if it did, log it
 time=$(date)
 if test "$clientOldShort" != "$clientNewShort"
-then echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log && echo " " >> updates.log
+then echo " " >> updates.log && echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log
 fi
 if test "$signerOldShort" != "$signerNewShort"
-then echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log && echo " " >> updates.log
+then echo " " >> updates.log && echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log
 fi
 if test "$aggregatorOldShort" != "$aggregatorNewShort"
-then echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log && echo " " >> updates.log
+then echo " " >> updates.log && echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log
 fi
 if test "$relayOldShort" != "$relayNewShort"
-then echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log && echo " " >> updates.log
+then echo " " >> updates.log && echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log
 fi
 echo "Update(s) complete"
