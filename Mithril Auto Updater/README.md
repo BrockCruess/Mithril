@@ -1,6 +1,13 @@
-**DOES NOT WORK FOR WINDOWS VERSION**
+<h1 align="center">
+Mithril Auto Updater<br/><br/>
+</h1>
 
-*This script will keep your Mithril binaries up-to-date with the latest pre-compiled binary releases.*
+This script will keep your Mithril binaries up-to-date with the latest pre-compiled binary releases.
+
+<br>
+
+> [!NOTE]
+> Does not work with the Windows version of Mithril.
 
 <br>
 
