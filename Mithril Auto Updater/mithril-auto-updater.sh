@@ -92,16 +92,16 @@ fi
 # Compare versions before and after to check if an update actually took place - if it did, log it
 time=$(date)
 if test "$clientOldShort" != "$clientNewShort"
-then echo " " >> updates.log && echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log
 fi
 if test "$signerOldShort" != "$signerNewShort"
-then echo " " >> updates.log && echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log
 fi
 if test "$aggregatorOldShort" != "$aggregatorNewShort"
-then echo " " >> updates.log && echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log
 fi
 if test "$relayOldShort" != "$relayNewShort"
-then echo " " >> updates.log && echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log
 fi
 # Find and delete .tar.gz download file
 tarFile=$(find . -maxdepth 1 -name "*.tar.gz" -print | cut -c 3-)
