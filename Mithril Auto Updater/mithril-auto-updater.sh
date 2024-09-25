@@ -6,7 +6,7 @@
 # Which binaries do you use? Type "yes" with no spaces or uppercase letters for binaries you use
 client=yes
 signer=yes
-aggregator=yes
+aggregator=no
 relay=yes
 
 # Find OS and format it to match the correct precompiled Mithril binaries
