@@ -53,10 +53,10 @@ then mv mithril-relay version-backups/$relayOld.bak
 fi
 # Find and delete any old .tar.gz download files
 oldTar=$(find . -maxdepth 1 -name "*.tar.gz" -print | cut -c 3-)
-rm $oldTar
+rm $oldTar &>/dev/null
 # Check latest Mithril release for OS and download it
-latestMithril=$(curl https://api.github.com/repos/input-output-hk/mithril/releases/latest | grep -n "tag_name" | cut -c 19-24)
-wget https://github.com/input-output-hk/mithril/releases/download/$latestMithril/mithril-$latestMithril-$os-x64.tar.gz && \
+latestMithril=$(curl -s https://api.github.com/repos/input-output-hk/mithril/releases/latest | grep -n "tag_name" | cut -c 19-24)
+wget -q https://github.com/input-output-hk/mithril/releases/download/$latestMithril/mithril-$latestMithril-$os-x64.tar.gz &>/dev/null && \
 # Uncompress only the files we need and make them all executable
 if test "$client" = "yes"
 then tar -xf mithril-$latestMithril-$os-x64.tar.gz mithril-client && chmod +x mithril-client
@@ -109,7 +109,10 @@ fi
 if test "$relayOldShort" != "$relayNewShort"
 then echo "" >> updates.log && echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log && echo -e "Updated Mithril Relay from {YELLOW}$relayOldShort{PURPLE} --> {GREEN}$relayNewShort{NC}"
 fi
+if test "$clientOldShort" == "$clientNewShort" && test "$signerOldShort" == "$signerNewShort" && test "$aggregatorOldShort" == "$aggregatorNewShort" && test "$relayOldShort" == "$relayNewShort"
+then echo && echo -e "${GREEN}No updates available.${NC}"
+fi
 # Find and delete .tar.gz download file
 tarFile=$(find . -maxdepth 1 -name "*.tar.gz" -print | cut -c 3-)
-rm $tarFile
-echo -e "${GREEN}Update(s) complete${NC}"
+rm $tarFile &>/dev/null
+echo
