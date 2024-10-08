@@ -9,6 +9,12 @@ signer=yes
 aggregator=no
 relay=yes
 
+# Configure session:
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+GREEN='\033[0;32m'
+PURPLE='\033[0;35m'
+NC='\033[0m'
 # Find OS and format it to match the correct precompiled Mithril binaries
 uname=$(uname)
 if test "$uname" = "Linux"
@@ -92,18 +98,18 @@ fi
 # Compare versions before and after to check if an update actually took place - if it did, log it
 time=$(date)
 if test "$clientOldShort" != "$clientNewShort"
-then echo "" >> updates.log && echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Client from $clientOldShort --> $clientNewShort" >> updates.log && echo -e "Updated Mithril Client from {YELLOW}$clientOldShort{PURPLE} --> {GREEN}$clientNewShort{NC}"
 fi
 if test "$signerOldShort" != "$signerNewShort"
-then echo "" >> updates.log && echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Signer from $signerOldShort --> $signerNewShort" >> updates.log && echo -e "Updated Mithril Signer from {YELLOW}$signerOldShort{PURPLE} --> {GREEN}$signerNewShort{NC}"
 fi
 if test "$aggregatorOldShort" != "$aggregatorNewShort"
-then echo "" >> updates.log && echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Aggregator from $aggregatorOldShort --> $aggregatorNewShort" >> updates.log && echo -e "Updated Mithril Aggregator from {YELLOW}$aggregatorOldShort{PURPLE} --> {GREEN}$aggregatorNewShort{NC}"
 fi
 if test "$relayOldShort" != "$relayNewShort"
-then echo "" >> updates.log && echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log
+then echo "" >> updates.log && echo "$time: Updated Mithril Relay from $relayOldShort --> $relayNewShort" >> updates.log && echo -e "Updated Mithril Relay from {YELLOW}$relayOldShort{PURPLE} --> {GREEN}$relayNewShort{NC}"
 fi
 # Find and delete .tar.gz download file
 tarFile=$(find . -maxdepth 1 -name "*.tar.gz" -print | cut -c 3-)
 rm $tarFile
-echo "Update(s) complete"
+echo -e "${GREEN}Update(s) complete${NC}"
